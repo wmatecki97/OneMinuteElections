@@ -10,7 +10,7 @@ interface Party {
 }
 
 const PartyChoosing = () => {
-    const headerStaticText ='European elections 2024 in one minute'
+    const [headerStaticText, setHeaderStaticText] = useState('')
 
     const [parties, setParties] = useState([{
         logo: 'https://www.socialistsanddemocrats.eu/themes/sd/images/png/logo_70.png',
@@ -66,21 +66,21 @@ const PartyChoosing = () => {
     }
 
     const headerFinished = () => {
-        const intervalId = setInterval(() => {
-            clearInterval(intervalId);
+        setHeaderStaticText('European elections 2024 in one minute')
 
-        }, 3000);
     }
     return <>
 
         {!selectedParty &&
             <>
-                <h1 className='header'>
-                {headerStaticText}
+                <h1 className='header' onMouseEnter={() => setHeaderStaticText('')}>
                     {
+                        !headerStaticText &&
                         <FlashingContainer text={headerText} finished={headerFinished} />
                     }
-                
+                    {
+                        headerStaticText
+                    }
                 </h1>
 
                 <div className='party-select-container'>
