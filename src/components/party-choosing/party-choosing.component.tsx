@@ -10,6 +10,8 @@ interface Party {
 }
 
 const PartyChoosing = () => {
+    const headerStaticText ='European elections 2024 in one minute'
+
     const [parties, setParties] = useState([{
         logo: 'https://www.socialistsanddemocrats.eu/themes/sd/images/png/logo_70.png',
         name: 'Socialists & Democrats',
@@ -55,26 +57,46 @@ const PartyChoosing = () => {
     ] as Party[]);
 
     const [selectedParty, setSelectedParty] = useState<Party>();
-
+    const headerText = 'Are you ready to learn everything about the european elections 2024 in under a minute?'
     const partyVisited = () => {
         if (selectedParty) {
             selectedParty.visited = true;
         }
         setSelectedParty(undefined)
     }
+
+    const headerFinished = () => {
+        const intervalId = setInterval(() => {
+            clearInterval(intervalId);
+
+        }, 3000);
+    }
     return <>
-        {!selectedParty && <div className='party-select-container'>
-            {
 
-                parties.map(p => <div className='party-tile' onClick={() => setSelectedParty(p)}>
-                    <img src={p.logo} className='party-logo'></img>
-                    <p className={p.visited ? 'disabled' : ''}>
-                        {p.name}
-                    </p>
-                </div>)
-            }
+        {!selectedParty &&
+            <>
+                <h1 className='header'>
+                {headerStaticText}
+                    {
+                        <FlashingContainer text={headerText} finished={headerFinished} />
+                    }
+                
+                </h1>
 
-        </div>}
+                <div className='party-select-container'>
+                    {
+
+                        parties.map(p => <div className='party-tile' onClick={() => setSelectedParty(p)}>
+                            <img src={p.logo} className='party-logo'></img>
+                            <p className={p.visited ? 'disabled' : ''}>
+                                {p.name}
+                            </p>
+                        </div>)
+                    }
+
+                </div>
+            </>
+        }
         {selectedParty &&
 
             <FlashingContainer text={selectedParty.description} finished={partyVisited} />
