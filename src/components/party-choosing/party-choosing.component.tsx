@@ -29,22 +29,27 @@ const PartyChoosing = () => {
         description: 'We are the pro-European and centrist political group in the European Parliament. We will invest in a sustainable continent. We do not have a Planet B, so we must make sure that we preserve the one we have. The Paris climate agreement of 2015 set out the roadmap, now it is time to deliver on the promises made and even go beyond them. We see this challenge as a fantastic opportunity, especially to create quality jobs for young people. We thrive for a more prosperous Europe for the benefit of all Europeans. By investing in the talents of our citizens and unlocking the potential of Europe’s internal market. We strongly believe that economic growth, environmental sustainability, fair competition and responsibility go hand in hand.'
     },
     {
-        logo: '',
-        name: '',
+        logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwlSy5W2g90PRr5XURcUPqtV_iTd7xoIfZBp5lipwQewYFn-tf0PRTUY77ZdUTftoz-EU&usqp=CAU',
+        name: 'Greens/EFA parliamentary group',
         visited: false,
-        description: ''
+        description: 'We want to protect our climate and environment for the generations to come.        We defend a society where every person has the right to speak up.        We fight for a true democracy where the public and the media        are able to control those in power.        We want to build a Europe that reduces poverty because everybody deserves a fair chance.        We believe the economy must serve the people, not the other way around.        We believe in a society that invests in public services and creates strong communities.        We support a democratic Europe of the peoples, regions and historic small nations where the right to self-determination is respected.        We want a society with decent paying jobs and warm homes to come home to.        A society where every person should be free to be who they want without discrimination.'    },
+    {
+        logo: 'https://elections.europa.eu/assets/img/logos/ecr-logo.png',
+        name: 'European Conservatives and Reformists Group',
+        visited: false,
+        description: 'We are Euro-realists, not anti-European, offering a unique vision of a reformed EU as a community of cooperating nations based on common interests.        We represent common sense in Brussels, advocating for equal treatment of Member States, fiscal responsibility, innovative solutions for migration and terrorism, and global competitiveness.          ECR leads with a forward-looking agenda for a more flexible, decentralized EU that respects Member States\' wishes. We prioritize cutting red tape, a national government-driven EU, efficiency, a functional immigration system, wise spending, and a safe, prosperous, and competitive EU for all.'
     },
     {
-        logo: '',
-        name: '',
+        logo: 'https://elections.europa.eu/assets/img/logos/id-logo.png',
+        name: 'Identity and Democracy Group',
         visited: false,
-        description: ''
+        description: 'We prioritize preserving and respecting national identities, opposing uncontrolled mass immigration and non-European country EU accession. We champion the right of European nations to determine their policies without EU interference. The ID Group addresses the EU\'s democratic deficit, advocating for greater influence of national Parliaments in EU decisions and full respect for referendum outcomes. Your voice matters, and we\'ll ensure it\'s heard.'
     },
     {
-        logo: '',
-        name: '',
+        logo: 'https://elections.europa.eu/assets/img/logos/gue-logo.png',
+        name: 'The Left Group in the European Parliament - GUE/NGL',
         visited: false,
-        description: ''
+        description: '﻿﻿﻿﻿The Left in the European Parliament stands up for workers, environment, feminism, peace & human rights. What unites us is the vision of a socially equitable and sustainable Europe based on international solidarity.The major policies of the European Union and its countries have not reflected this vision thus far. EU policy is too frequently based on a radically market-oriented logic of competition both within the EU and towards the rest of the world. The European Union must become a project of people and cannot remain a project of the elites. Neoliberals and the far-right will always be confronted by those of us working in the public interest. We made a commitment: to be the voice of the streets in the European Parliament.'
     },
     ] as Party[]);
 
