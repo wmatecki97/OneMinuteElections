@@ -10,7 +10,7 @@ interface Party {
 }
 
 const PartyChoosing = () => {
-    const parties = [{
+    const [parties, setParties] = useState([{
         logo: 'https://www.socialistsanddemocrats.eu/themes/sd/images/png/logo_70.png',
         name: 'Socialists & Democrats',
         visited: false,
@@ -46,13 +46,12 @@ const PartyChoosing = () => {
         visited: false,
         description: ''
     },
-    ] as Party[];
+    ] as Party[]);
 
     const [selectedParty, setSelectedParty] = useState<Party>();
 
     const partyVisited = () => {
         if(selectedParty){
-
          selectedParty.visited = true;
     }
     setSelectedParty(undefined)
@@ -60,7 +59,7 @@ const PartyChoosing = () => {
     return <>
             {!selectedParty && parties.map(p => <div onClick={() => setSelectedParty(p)}>
                 <img src={p.logo} className='party-logo'></img>
-                <p>
+                <p className={p.visited ? 'disabled' : ''}>
                     {p.name}
                 </p>
             </div>)}
