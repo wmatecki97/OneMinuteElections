@@ -32,7 +32,8 @@ const PartyChoosing = () => {
         logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwlSy5W2g90PRr5XURcUPqtV_iTd7xoIfZBp5lipwQewYFn-tf0PRTUY77ZdUTftoz-EU&usqp=CAU',
         name: 'Greens/EFA parliamentary group',
         visited: false,
-        description: 'We want to protect our climate and environment for the generations to come.        We defend a society where every person has the right to speak up.        We fight for a true democracy where the public and the media        are able to control those in power.        We want to build a Europe that reduces poverty because everybody deserves a fair chance.        We believe the economy must serve the people, not the other way around.        We believe in a society that invests in public services and creates strong communities.        We support a democratic Europe of the peoples, regions and historic small nations where the right to self-determination is respected.        We want a society with decent paying jobs and warm homes to come home to.        A society where every person should be free to be who they want without discrimination.'    },
+        description: 'We want to protect our climate and environment for the generations to come.        We defend a society where every person has the right to speak up.        We fight for a true democracy where the public and the media        are able to control those in power.        We want to build a Europe that reduces poverty because everybody deserves a fair chance.        We believe the economy must serve the people, not the other way around.        We believe in a society that invests in public services and creates strong communities.        We support a democratic Europe of the peoples, regions and historic small nations where the right to self-determination is respected.        We want a society with decent paying jobs and warm homes to come home to.        A society where every person should be free to be who they want without discrimination.'
+    },
     {
         logo: 'https://elections.europa.eu/assets/img/logos/ecr-logo.png',
         name: 'European Conservatives and Reformists Group',
@@ -56,22 +57,28 @@ const PartyChoosing = () => {
     const [selectedParty, setSelectedParty] = useState<Party>();
 
     const partyVisited = () => {
-        if(selectedParty){
-         selectedParty.visited = true;
-    }
-    setSelectedParty(undefined)
+        if (selectedParty) {
+            selectedParty.visited = true;
+        }
+        setSelectedParty(undefined)
     }
     return <>
-            {!selectedParty && parties.map(p => <div onClick={() => setSelectedParty(p)}>
-                <img src={p.logo} className='party-logo'></img>
-                <p className={p.visited ? 'disabled' : ''}>
-                    {p.name}
-                </p>
-            </div>)}
-            {selectedParty && 
-            
-        <FlashingContainer text={selectedParty.description} finished={partyVisited} />
-    }
+        {!selectedParty && <div className='party-select-container'>
+            {
+
+                parties.map(p => <div className='party-tile' onClick={() => setSelectedParty(p)}>
+                    <img src={p.logo} className='party-logo'></img>
+                    <p className={p.visited ? 'disabled' : ''}>
+                        {p.name}
+                    </p>
+                </div>)
+            }
+
+        </div>}
+        {selectedParty &&
+
+            <FlashingContainer text={selectedParty.description} finished={partyVisited} />
+        }
     </>
         ;
 
