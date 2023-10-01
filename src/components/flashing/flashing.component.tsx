@@ -8,7 +8,7 @@ export interface Props{
 
 const FlashingContainer = ({text, finished} : Props) => {
   const [word, setWord] = useState('test');
-  const setWordsWithDelay = (words:string[]) => {
+  const setWordsWithDelay = (words:string[], finished:() =>void, timeout = 180) => {
     let index = 0;
   
     const intervalId = setInterval(() => {
@@ -18,15 +18,17 @@ const FlashingContainer = ({text, finished} : Props) => {
   
         index++;
       } else {
-        finished();
+          finished();
         clearInterval(intervalId);
       }
-    }, 150); 
+    }, timeout); 
   };
 
   useEffect(() => {
-      const words = text.split(/[^a-zA-Z]+/);
-      setWordsWithDelay(words);
+      const words = text.split(/[^a-zA-Z.?]+/);
+      setWordsWithDelay(['3','2','1'], () => setWordsWithDelay(words, finished));
+
+      ;
 
   },[])
 

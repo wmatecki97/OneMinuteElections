@@ -48,8 +48,8 @@
 .party-select-container {
   display: flex;
   max-width: 1000px;
-  align-items: center;
   justify-content: center;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 
@@ -61,4 +61,11 @@
   justify-content: center;
   align-items: center;
   font-size: 25px;
+}
+
+.header{
+  height:40px;
+  padding:20px;
+  padding-bottom:60px;
+  
 }
