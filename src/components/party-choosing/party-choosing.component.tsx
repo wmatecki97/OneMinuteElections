@@ -57,7 +57,7 @@ const PartyChoosing = () => {
     ] as Party[]);
 
     const [selectedParty, setSelectedParty] = useState<Party>();
-    const headerText = 'Are you ready to learn everything about the european elections 2024 in under a minute?'
+    const headerText = 'Are you ready to learn everything about the european elections 2024 in just a minute?'
     const partyVisited = () => {
         if (selectedParty) {
             selectedParty.visited = true;
@@ -66,7 +66,11 @@ const PartyChoosing = () => {
     }
 
     const headerFinished = () => {
-        setHeaderStaticText('European elections 2024 in one minute')
+        const intervalId = setInterval(() => {
+            setHeaderStaticText('European elections 2024 in one minute')
+
+              clearInterval(intervalId);
+    }, 1000); 
 
     }
     return <>
@@ -99,7 +103,10 @@ const PartyChoosing = () => {
         }
         {selectedParty &&
 
-            <FlashingContainer text={selectedParty.description} finished={partyVisited} />
+<div className='flashing-content-container'>
+<FlashingContainer text={selectedParty.description} finished={partyVisited} />
+
+</div>
         }
     </>
         ;
